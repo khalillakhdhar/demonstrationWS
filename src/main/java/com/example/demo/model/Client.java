@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,7 +13,10 @@ public class Client {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	private String nom,prenom,email,tel;
+	@Column(nullable = false,length = 30)
+	private String nom,prenom,tel;
+	@Column(unique = true)
+	private String email;
 	
 	private int age;
 
